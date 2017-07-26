@@ -23,3 +23,7 @@ docker commit <ID of container you just ran> jameslee/debian:1.00 # commits your
 
 Docker build:
 docker build -t greg/ubuntu:2.00 . # builds with new tag greg/ubuntu:2.00 from 'Dockerfile' contained in current dir, .
+
+Dockerfile:
+CMD - command that runs upon container startup
+RUN - command that runs during build
