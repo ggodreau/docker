@@ -21,3 +21,5 @@ Committing container changes to a new image:
 docker ps -a # get the namme or ID of the image you just ran
 docker commit <ID of container you just ran> jameslee/debian:1.00 # commits your image diff to your docker hub account, returns the long ID of the image to you
 
+Docker build:
+docker build -t greg/ubuntu:2.00 . # builds with new tag greg/ubuntu:2.00 from 'Dockerfile' contained in current dir, .
