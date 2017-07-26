@@ -27,3 +27,6 @@ docker build -t greg/ubuntu:2.00 . # builds with new tag greg/ubuntu:2.00 from '
 Dockerfile:
 CMD - command that runs upon container startup
 RUN - command that runs during build
+
+Getting IP of container from outside container:
+docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 230f1bf4dfed
