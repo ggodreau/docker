@@ -23,10 +23,17 @@ docker commit <ID of container you just ran> jameslee/debian:1.00 # commits your
 
 Docker build:
 docker build -t greg/ubuntu:2.00 . # builds with new tag greg/ubuntu:2.00 from 'Dockerfile' contained in current dir, .
+docker tag <imageID> greg/ubuntu:1.00  # changes tag of imageID to greg/ubuntu:1.00
 
 Dockerfile:
 CMD - command that runs upon container startup
 RUN - command that runs during build
+COPY - copies files from local directory to container being built
+ADD - can do copy from local dir, as well as decompress compressed local files, and pull files from internets
 
 Getting IP of container from outside container:
 docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 230f1bf4dfed
+
+Docker Push:
+docker login --username=godreau # after this, it will prompt for the password
+
