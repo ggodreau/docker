@@ -8,7 +8,7 @@ docker inspect myContainerName # outputs container info to terminal in json form
 Removing images:
 docker -rmi busybox # removes image 'busybox'
 
-Running Tomcat:
+Running Tomcat with port remapping:
 docker run -it --rm -p 8888:8080 tomcat:9.0
 
 Viewing container logs:
@@ -30,10 +30,14 @@ CMD - command that runs upon container startup
 RUN - command that runs during build
 COPY - copies files from local directory to container being built
 ADD - can do copy from local dir, as well as decompress compressed local files, and pull files from internets
+WORKDIR - changes LOCAL (host) directory
+USER - changes user within the environment (like su?)
 
-Getting IP of container from outside container:
+Getting IP address of container from outside container:
 docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 230f1bf4dfed
 
 Docker Push:
 docker login --username=godreau # after this, it will prompt for the password
 
+Open a shell within a running container:
+docker exec -it <containerID> bash
