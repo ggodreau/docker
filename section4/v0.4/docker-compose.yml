@@ -1,0 +1,21 @@
+version: '2'
+services:
+  dockerapp:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./app:/app
+    networks:
+      - greg_net
+
+  redis:
+    image: redis:3.2.0
+    networks:
+      - greg_net
+
+# default network is the name of the folder in which docker-compose.yml is, i.e. 'v0.4_default'
+# this changes that to 'greg_net'
+networks:
+    greg_net:
+        driver: bridge

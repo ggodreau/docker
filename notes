@@ -48,6 +48,13 @@ docker exec -it <containerID> bash
 
 Docker networking:
 docker run -d -p 5000:5000 --link redis flaskserver:2.00 #links networking of 'redis' and 'flaskserver:2.00' containers
+docker network ls # show adapters on the host (not the container)
+docker network inspect bridge # show details (json) of the host's bridge interface
+docker network create --driver bridge my_bridge # creates a new host bridge network (/16 subnet) named my_bridge
+docker run -d --name mycontainer --net my_bridge busybox sleep 100 # creates a new container with default subnet of my_bridge
+docker network connect <bridge name> <mycontainer> # connects running mycontainer to a new subnet, 'bridge name'
+docker network disconnect <bridge name> <mycontainer> # disconnects running mycontainer from subnet 'bridge name'
+docker run --name mycontainer --net host -d busybox # create new container on HOST network, host network is on subnet of host
 
 Docker compose:
 docker-compose -f ./docker-compose.yml -d up # starts docker-compose cluster in background
