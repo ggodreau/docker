@@ -48,3 +48,11 @@ docker exec -it <containerID> bash
 
 Docker networking:
 docker run -d -p 5000:5000 --link redis flaskserver:2.00 #links networking of 'redis' and 'flaskserver:2.00' containers
+
+Docker compose:
+docker-compose -f ./docker-compose.yml -d up # starts docker-compose cluster in background
+docker-compose rm # removes the containers created by the current directory's docker-compose
+docker-compose rm --all # removes all containers
+docker-compose logs # outputs the server logs from the cwd docker-compose.yml cluster to terminal
+docker-compose stop # stops runing containers without removing them
+docker-compose build # rebuilds any containers (doesn't use cached containers)
