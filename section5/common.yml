@@ -1,7 +1,19 @@
 version: '2'
 services:
   dockerapp:
+    # new
+    networks:
+      - bridge_net
+      - inter_net
     ports:
-      - "5000:5000"
+      - "8888:5000"
   redis:
     image: redis:3.2.0
+    networks:
+      - bridge_net
+
+networks:
+  bridge_net:
+    driver: bridge
+  inter_net:
+    driver: host
