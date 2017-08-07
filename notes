@@ -63,3 +63,4 @@ docker-compose rm --all # removes all containers
 docker-compose logs # outputs the server logs from the cwd docker-compose.yml cluster to terminal
 docker-compose stop # stops runing containers without removing them
 docker-compose build # rebuilds any containers (doesn't use cached containers)
+docker-compose run <serviceToRunCommandAgainst> <command> # runs a one-time <command> within <serviceToRunCommandAgainst>, for unit testing
