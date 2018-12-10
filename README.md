@@ -8,8 +8,17 @@ docker inspect myContainerName # outputs container info to terminal in json form
 Stopping docker images:
 docker stop <containerName>
 
+Stop all images: (kill is a foreceful stop)
+docker kill $(docker ps -q)
+
+Delete / remove all stopped containers:
+docker rm $(docker ps -a -q)
+
 Removing images:
 docker -rmi busybox # removes image 'busybox'
+
+Remove all images:
+docker rmi $(docker images -q)
 
 Running Tomcat with port remapping:
 docker run -it --rm -p 8888:8080 tomcat:9.0 # syntax is <host port>:<container port>
